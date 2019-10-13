@@ -10,5 +10,7 @@ public class Main {
                 j++;
             } while (j <= 2);
         System.out.println(x);
+        //
+        MySqlClass serverMySql = new MySqlClass();
     }
 }
