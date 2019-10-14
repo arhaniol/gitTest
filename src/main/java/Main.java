@@ -10,7 +10,7 @@ public class Main {
                 j++;
             } while (j <= 2);
         System.out.println(x);
-        //
+        // connection with DB
         MySqlClass serverMySql = new MySqlClass();
         System.out.println("Koniec");
     }
