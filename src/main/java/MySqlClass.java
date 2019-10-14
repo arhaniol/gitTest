@@ -6,7 +6,7 @@ import java.sql.*;
 
 
 public class MySqlClass {
-    private Connection msqlConnection = null;
+    private Connection mysqlConnection = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
 
@@ -30,9 +30,9 @@ public class MySqlClass {
             String url = properties.getProperty("url");
             String user = properties.getProperty("user");
             String pass = properties.getProperty("pass");
-            msqlConnection = DriverManager.getConnection(url, user, pass);
+            mysqlConnection = DriverManager.getConnection(url, user, pass);
 
-            statement = msqlConnection.createStatement();
+            statement = mysqlConnection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM people");
             while(resultSet.next()){
                 System.out.println("imie: "+resultSet.getString(1)+"\t"+"nazwisko: "+resultSet.getString(2));
@@ -42,6 +42,21 @@ public class MySqlClass {
             e.printStackTrace();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
+        } finally {
+            close();
+            }
+        }
+    private void close() {
+        try {
+            if (mysqlConnection != null) {
+                mysqlConnection.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        }
+        catch (Exception ignored){
+
         }
     }
 }
