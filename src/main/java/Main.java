@@ -12,5 +12,6 @@ public class Main {
         System.out.println(x);
         //
         MySqlClass serverMySql = new MySqlClass();
+        System.out.println("Koniec");
     }
 }
